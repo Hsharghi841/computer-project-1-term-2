@@ -1,9 +1,9 @@
 package TaskPackage;
 
 public class Task {
-    String name;
-    double start_time,finish_time;
-    Task(String name){
+    public String name;
+    public double start_time,finish_time;
+    public Task(String name){
         this.name=name;
         start_time=0;
         finish_time=0;
@@ -14,9 +14,14 @@ public class Task {
         dush=(int)(start_time);
         dufmi=(((int)(finish_time*100))%100);
         dufh=(int)(finish_time);
-        if(dusmi<dufmi){
-            dusmi+=60;
-            dush--;
+        if(dufmi<dusmi){
+            dufmi+=60;
+            dufh--;
         }
+        if(dufh<dush){
+            dufh+=24;
+        }
+        duration+=dufmi-dusmi+dufh-dush;
+        return duration;
     }
 }
