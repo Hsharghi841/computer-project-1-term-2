@@ -10,12 +10,12 @@ public class Task {
     }
     public double getDuration(){
         double dusmi=0,dush=0,dufmi=0,dufh=0,duration = 0;
-        dusmi=(((int)(start_time*100))%100);
+        dusmi=(double) (((int)(start_time*100))%100) / 100;
         dush=(int)(start_time);
-        dufmi=(((int)(finish_time*100))%100);
+        dufmi=(double)(((int)(finish_time*100))%100) / 100;
         dufh=(int)(finish_time);
         if(dufmi<dusmi){
-            dufmi+=60;
+            dufmi+= 60.0 / 100;
             dufh--;
         }
         if(dufh<dush){
