@@ -1,6 +1,7 @@
 package UserPackage;
 
 import java.util.Scanner;
+import TaskPackage.Task;
 
 public class User {
     private String username;
@@ -38,6 +39,7 @@ public class User {
     public Task createTask(){
         Scanner scanner = new Scanner(System.in);
         String taskName = scanner.nextLine();
+        return new Task(taskName);
     }
 
     public String getFullName(){
