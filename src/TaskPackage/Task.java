@@ -9,7 +9,7 @@ public class Task {
         finish_time=0;
     }
     public double getDuration(){
-        double dusmi=0,dush=0,dufmi=0,dufh=0,duration;
+        double dusmi=0,dush=0,dufmi=0,dufh=0,duration = 0;
         dusmi=(((int)(start_time*100))%100);
         dush=(int)(start_time);
         dufmi=(((int)(finish_time*100))%100);
