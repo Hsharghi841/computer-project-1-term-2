@@ -1,8 +1,8 @@
 package TaskPackage;
 
 public class Task {
-    String name;
-    double start_time,finish_time;
+    public String name;
+    public double start_time,finish_time;
     public Task(String name){
         this.name=name;
         start_time=0;
