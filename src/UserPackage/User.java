@@ -43,6 +43,10 @@ public class User {
         if(tasksNum == 0){
             taskList = new Task[10];
         }
+        if(isTaskRepetitive(taskName)){
+            System.out.println("repeated name!");
+            return null;
+        }
         taskList[tasksNum] = new Task(taskName);
         tasksNum++;
         return taskList[tasksNum - 1];
