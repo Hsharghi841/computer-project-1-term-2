@@ -1,5 +1,6 @@
 package UserPackage;
 
+import java.util.Objects;
 import java.util.Scanner;
 import TaskPackage.Task;
 
@@ -10,6 +11,8 @@ public class User {
     public String lastname;
     public String email;
     public int streak;
+    private Task[] taskList;
+    private int tasksNum = 0;
 
     public User(String username, String password, String name, String lastname, String email) {
         this.username = username;
@@ -36,13 +39,25 @@ public class User {
         this.password = password;
     }
 
-    public Task createTask(){
-        Scanner scanner = new Scanner(System.in);
-        String taskName = scanner.nextLine();
-        return new Task(taskName);
+    public Task createTask(String taskName){
+        if(tasksNum == 0){
+            taskList = new Task[10];
+        }
+        taskList[tasksNum] = new Task(taskName);
+        tasksNum++;
+        return taskList[tasksNum - 1];
     }
 
     public String getFullName(){
         return name + " " + lastname;
+    }
+
+    public boolean isTaskRepetitive(String taskName){
+        for (int i = 0; i < tasksNum; i++) {
+            if(Objects.equals(taskName, taskList[i].name)){
+                return true;
+            }
+        }
+        return false;
     }
 }
