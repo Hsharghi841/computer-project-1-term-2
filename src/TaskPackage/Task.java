@@ -54,7 +54,9 @@ public class Task {
         duration+=dufmi-dusmi+dufh-dush;
         return duration;
     }
-    public boolean isColorValid(String color){
+    public static boolean isColorValid(String color){
+        if(color.length()!=6)
+            return false;
         for (int i = 0; i < color.length(); i++) {
             if (((color.charAt(i)>=48&&color.charAt(i)<=57)||(color.charAt(i)>=65&&color.charAt(i)<=70))==false){
                 return false;
