@@ -52,7 +52,7 @@ public class User {
             System.out.println("repeated name!");
             return null;
         }
-        taskList[tasksNum] = new Task(taskName);
+        taskList[tasksNum] = new Task(this, taskName);
         tasksNum++;
         return taskList[tasksNum - 1];
     }

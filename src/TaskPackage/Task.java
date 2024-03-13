@@ -10,6 +10,7 @@ public class Task {
     public Task(User user, String name) {
         this.user = user;
         this.name = name;
+        this.color=null;
     }
 
     public Task(User user, String name, String color) {
@@ -17,8 +18,10 @@ public class Task {
         this.name = name;
         if (isColorValid(color))
             this.color = color;
-        else
+        else {
             System.out.println("this color is invalid");
+            this.color=null;
+        }
     }
 
     public void setStart_time(double start_time) {
