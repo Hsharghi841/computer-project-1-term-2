@@ -1,5 +1,5 @@
-import UserPackage.*;
 package TaskPackage;
+import UserPackage.*;
 
 public class Task {
     private User user;
