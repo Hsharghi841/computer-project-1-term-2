@@ -1,8 +1,9 @@
 package UserPackage;
 
 import java.util.Objects;
-import java.util.Scanner;
+
 import TaskPackage.Task;
+import UtilityPackage.Utils;
 
 public class User {
     private String username;
@@ -16,7 +17,7 @@ public class User {
 
     public User(String username, String password, String name, String lastname, String email) {
         this.username = username;
-        this.password = password;
+        setPassword(password);
         this.name = name;
         this.lastname = lastname;
         this.email = email;
@@ -36,7 +37,11 @@ public class User {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        if(Utils.isPasswordValid(password)){
+            this.password = password;
+        }else {
+            System.out.println("password is not strong");
+        }
     }
 
     public Task createTask(String taskName){
