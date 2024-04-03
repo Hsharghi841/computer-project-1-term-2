@@ -1,5 +1,7 @@
 package UtilityPackage;
 
+import java.util.regex.Pattern;
+
 public class Utils {
     public static boolean isPasswordValid(String pass){
         boolean let = false, num = false;
@@ -15,5 +17,15 @@ public class Utils {
             }
         }
         return let && num;
+    }
+    public static boolean isEmailValid(String Email){
+        if(!Pattern.matches("[a-zA-Z0-9].(@)[^0-9]",Email)) {
+            System.out.println("this email is invalid");
+            return false;
+        }
+        else {
+            System.out.println("this email is valid");
+            return true;
+        }
     }
 }
