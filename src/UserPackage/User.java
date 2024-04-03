@@ -58,7 +58,7 @@ public class User {
     }
 
     public String getFullName(){
-        return name + " " + lastname;
+        return name.concat(lastname);
     }
 
     public boolean isTaskRepetitive(String taskName){
@@ -69,4 +69,36 @@ public class User {
         }
         return false;
     }
+
+    public Task getTaskByName(String name){
+
+        for(Task t : taskList){
+            if(Objects.equals(name, t.name)){
+                return t;
+            }
+        }
+        System.out.println("task not found!");
+        return null;
+    }
+
+    public Task getTaskByColor(String color){
+
+        for(Task t : taskList){
+            if(Objects.equals(color, t.color)){
+                return t;
+            }
+        }
+        System.out.println("task not found!");
+        return null;
+    }
+
+    public void setFirstName(String firstName){
+        this.name = (firstName.toLowerCase().charAt(0) + 32) + firstName.toLowerCase().substring(1);
+    }
+
+    public void setLastName(String lastname){
+        this.lastname = (lastname.toLowerCase().charAt(0) + 32) + lastname.toLowerCase().substring(1);
+    }
+
+
 }
