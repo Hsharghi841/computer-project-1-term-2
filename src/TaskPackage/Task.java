@@ -4,7 +4,7 @@ import UserPackage.*;
 
 public class Task {
     private User user;
-    public String name;
+    private String name;
     public final String color;
     private double start_time, finish_time;
 
@@ -66,5 +66,12 @@ public class Task {
 
         }
         return true;
+    }
+
+    public void setName(String name) {
+        if(name.length()<11)
+            this.name = name;
+        else
+            System.out.println("you can't set this name");
     }
 }
