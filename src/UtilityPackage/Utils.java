@@ -19,7 +19,7 @@ public class Utils {
         return let && num;
     }
     public static boolean isEmailValid(String Email){
-        if(!Pattern.matches("[a-zA-Z0-9].(@)[^0-9]",Email)) {
+        if(!Pattern.matches("[a-zA-Z0-9\\.]+(@)[^0-9]+(\\.)[^0-9]+",Email)) {
             System.out.println("this email is invalid");
             return false;
         }

@@ -10,13 +10,13 @@ public class Task {
 
     public Task(User user, String name) {
         this.user = user;
-        this.name = name;
+        setName(name);
         this.color = null;
     }
 
     public Task(User user, String name, String color) {
         this.user = user;
-        this.name = name;
+        setName(name);
         if (isColorValid(color))
             this.color = color;
         else {

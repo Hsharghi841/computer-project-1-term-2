@@ -8,8 +8,8 @@ import UtilityPackage.Utils;
 public class User {
     private String username;
     private String password;
-    public String name;
-    public String lastname;
+    private String name;
+    private String lastname;
     public String email;
     public int streak;
     private Task[] taskList;
@@ -18,8 +18,8 @@ public class User {
     public User(String username, String password, String name, String lastname, String email) {
         this.username = username;
         setPassword(password);
-        this.name = name;
-        this.lastname = lastname;
+        setFirstName(name);
+        setLastName(lastname);
         this.email = email;
         this.streak = 0;
     }
@@ -58,7 +58,7 @@ public class User {
     }
 
     public String getFullName(){
-        return name.concat(lastname);
+        return name.concat(" ".concat(lastname));
     }
 
     public boolean isTaskRepetitive(String taskName){
@@ -81,23 +81,24 @@ public class User {
         return null;
     }
 
-    public Task getTaskByColor(String color){
-
+    public Task[] getTaskByColor(String color){
+        Task[] tasks = new Task[tasksNum];
+        int counter = 0;
         for(Task t : taskList){
             if(Objects.equals(color, t.color)){
-                return t;
+                tasks[counter++] = t;
             }
         }
-        System.out.println("task not found!");
-        return null;
+        if(counter == 0)System.out.println("task not found!");
+        return tasks;
     }
 
     public void setFirstName(String firstName){
-        this.name = (firstName.toLowerCase().charAt(0) + 32) + firstName.toLowerCase().substring(1);
+        this.name = (firstName.toLowerCase().charAt(0) - 32) + firstName.toLowerCase().substring(1);
     }
 
     public void setLastName(String lastname){
-        this.lastname = (lastname.toLowerCase().charAt(0) + 32) + lastname.toLowerCase().substring(1);
+        this.lastname = (lastname.toLowerCase().charAt(0) - 32) + lastname.toLowerCase().substring(1);
     }
 
 
