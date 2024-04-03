@@ -63,7 +63,7 @@ public class User {
 
     public boolean isTaskRepetitive(String taskName){
         for (int i = 0; i < tasksNum; i++) {
-            if(Objects.equals(taskName, taskList[i].name)){
+            if(Objects.equals(taskName, taskList[i].getName())){
                 return true;
             }
         }
@@ -73,7 +73,7 @@ public class User {
     public Task getTaskByName(String name){
 
         for(Task t : taskList){
-            if(Objects.equals(name, t.name)){
+            if(Objects.equals(name, t.getName())){
                 return t;
             }
         }
