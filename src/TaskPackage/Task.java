@@ -74,4 +74,8 @@ public class Task {
         else
             System.out.println("you can't set this name");
     }
+
+    public String getName() {
+        return name;
+    }
 }
