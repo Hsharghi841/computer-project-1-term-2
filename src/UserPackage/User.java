@@ -4,6 +4,7 @@ import java.util.Objects;
 
 import Activity.Task;
 import UtilityPackage.Utils;
+import Utils.Utility;
 
 public class User {
     private String username;
@@ -37,7 +38,7 @@ public class User {
     }
 
     public void setPassword(String password) {
-        if(Utils.isPasswordValid(password)){
+        if(Utility.isPasswordValid(password)){
             this.password = password;
         }else {
             System.out.println("password is not strong");
