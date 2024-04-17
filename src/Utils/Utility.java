@@ -1,8 +1,8 @@
-package UtilityPackage;
+package Utils;
 
 import java.util.regex.Pattern;
 
-public class Utils {
+public class Utility {
     public static boolean isPasswordValid(String pass){
         boolean let = false, num = false;
         for (int i = 0; i < pass.length(); i++) {
