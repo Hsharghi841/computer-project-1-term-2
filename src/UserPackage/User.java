@@ -2,7 +2,7 @@ package UserPackage;
 
 import java.util.Objects;
 
-import TaskPackage.Task;
+import Activity.Task;
 import UtilityPackage.Utils;
 
 public class User {
@@ -12,8 +12,8 @@ public class User {
     private String lastname;
     public String email;
     public int streak;
-    private Task[] taskList;
-    private int tasksNum = 0;
+    private ToDo[] toDoList;
+    private int toDosNum = 0;
 
     public User(String username, String password, String name, String lastname, String email) {
         this.username = username;
@@ -44,26 +44,26 @@ public class User {
         }
     }
 
-    public Task createTask(String taskName){
+    public Task createToDo(String taskName){
         if(tasksNum == 0){
-            taskList = new Task[10];
+            toDoList = new Task[10];
         }
-        if(isTaskRepetitive(taskName)){
+        if(isToDoRepetitive(taskName)){
             System.out.println("repeated name!");
             return null;
         }
-        taskList[tasksNum] = new Task(this, taskName);
+        toDoList[tasksNum] = new Task(this, taskName);
         tasksNum++;
-        return taskList[tasksNum - 1];
+        return toDoList[tasksNum - 1];
     }
 
     public String getFullName(){
         return name.concat(" ".concat(lastname));
     }
 
-    public boolean isTaskRepetitive(String taskName){
+    public boolean isToDoRepetitive(String taskName){
         for (int i = 0; i < tasksNum; i++) {
-            if(Objects.equals(taskName, taskList[i].getName())){
+            if(Objects.equals(taskName, toDoList[i].getName())){
                 return true;
             }
         }
@@ -72,7 +72,7 @@ public class User {
 
     public Task getTaskByName(String name){
 
-        for(Task t : taskList){
+        for(Task t : toDoList){
             if(Objects.equals(name, t.getName())){
                 return t;
             }
@@ -81,10 +81,10 @@ public class User {
         return null;
     }
 
-    public Task[] getTaskByColor(String color){
+    public Task[] getToDosByColor(String color){
         Task[] tasks = new Task[tasksNum];
         int counter = 0;
-        for(Task t : taskList){
+        for(Task t : toDoList){
             if(Objects.equals(color, t.color)){
                 tasks[counter++] = t;
             }
@@ -101,5 +101,7 @@ public class User {
         this.lastname = (lastname.toLowerCase().charAt(0) - 32) + lastname.toLowerCase().substring(1);
     }
 
-
+    public String getName() {
+        return name;
+    }
 }
