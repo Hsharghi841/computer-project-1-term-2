@@ -16,19 +16,18 @@ public class Application {
         User[] result = new User[10];
         int resultNo = 0;
         for (int i = 0; i < userNo; i++) {
-            if(Objects.equals(users[i].getName(), name)){
+            if(Objects.equals(users[i].getUsername(), name)){
                 result[resultNo++] = users[i];
             }
         }
         if(resultNo == 0){
-            System.out.println("*");
             return null;
         }
         return result;
     }
 
     public void addUser(String userName, String password){
-        users[userNo++] = new User("dfgh", password, userName, "fgh", "fghj");
+        users[userNo++] = new User(userName, password, userName, "fgh", "fghj");
     }
 
     public void removeUser(String username){
