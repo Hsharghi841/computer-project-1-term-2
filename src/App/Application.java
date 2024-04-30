@@ -9,10 +9,10 @@ import java.util.Objects;
 
 public class Application {
 
-    User[] users = new User[10];
-    int userNo = 0;
+    private User[] users = new User[10];
+    private int userNo = 0;
 
-    public User[] getUsersByName(String name){
+    public User[] getUserByName(String name){
         User[] result = new User[10];
         int resultNo = 0;
         for (int i = 0; i < userNo; i++) {
@@ -20,12 +20,15 @@ public class Application {
                 result[resultNo++] = users[i];
             }
         }
-        if(resultNo == 0)return null;
+        if(resultNo == 0){
+            System.out.println("*");
+            return null;
+        }
         return result;
     }
 
     public void addUser(String userName, String password){
-        users[userNo++] = new User(userName, password, "", "", "");
+        users[userNo++] = new User("dfgh", password, userName, "fgh", "fghj");
     }
 
     public void removeUser(String username){

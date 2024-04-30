@@ -5,7 +5,7 @@ import UserPackage.User;
 import java.awt.*;
 
 public class ToDo {
-    private String name;
+    public String name;
     protected String color;
     protected double start_time;
 
@@ -64,5 +64,9 @@ public class ToDo {
             this.name = name;
         else
             System.out.println("you can't set this name");
+    }
+
+    public String getColor() {
+        return color;
     }
 }
